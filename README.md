@@ -18,5 +18,7 @@ Se compila y corre en c++
 
 Puede fallar con las siguientes acciones:
 No se guardan los archivos en la misma carpeta antes de compilar
+
 Se ingresa un datatype incorrecto
+
 Si se intenta buscar un ID que no existe o en caso de que haya un typo en a búsqueda

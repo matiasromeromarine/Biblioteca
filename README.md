@@ -1,4 +1,4 @@
-# Poryecto OOP2: Biblioteca Digital
+# Proyecto OOP2: Biblioteca Digital
 
 Este proyecto trata sobre lo que serría una interfaz de una biblioteca online. Esta biblioteca incluye un sistema de recomendación inteligente y eso es lo que lo hace especial. Está diseñado bajo principios de programación orientada a objetos, herencia y polimorfismo. De esta manera los usarios podrán explorar la biblioteca de la mejor manera.
 

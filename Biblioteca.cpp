@@ -23,7 +23,7 @@ public:
     void agregarRecurso(unique_ptr<Pelicula> pelicula);
     void agregarRecurso(unique_ptr<Audiolibro> audiolibro);
 
-    vector<RecursoDigital*> buscarPorId(string id);
+    RecursoDigital* buscarPorId(string id);
     vector<RecursoDigital*> buscarPorTitulo(string fragmento);
     vector<RecursoDigital*> buscarPorAutor(string autor);
     vector<RecursoDigital*> buscarPorYear(int year);

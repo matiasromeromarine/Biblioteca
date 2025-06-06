@@ -24,5 +24,5 @@ Se ingresa un datatype incorrecto
 Si se intenta buscar un ID que no existe o en caso de que haya un typo en a búsqueda
 
 # Compliación
-g++ RecursoDigital.cpp Libro.cpp Pelicula.cpp Audiolibro.cpp Biblioteca.cpp Usuario.cpp main.cpp -o biblioteca.exe
+g++ RecursoDigital.cpp Libro.cpp Pelicula.cpp Audiolibro.cpp Biblioteca.cpp Usuario.cpp main.cpp -o biblioteca
 >> ./biblioteca

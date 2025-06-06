@@ -9,64 +9,75 @@ Biblioteca::Biblioteca()
     : total_recursos(0) {}
 
 void Biblioteca::agregar_libro(int id, string titulo, int paginas, string autor) {
-    RecursoDigital* r = new Libro(id, titulo, paginas, autor);
-    recursos.push_back(r);
-    total_recursos++;
+    if (total_recursos < MAX_RECURSOS) {
+        recursos[total_recursos++] = new Libro(id, titulo, paginas, autor);
+    }
 }
 
 void Biblioteca::agregar_pelicula(int id, string titulo, int duracion_min, string director) {
-    RecursoDigital* r = new Pelicula(id, titulo, duracion_min, director);
-    recursos.push_back(r);
-    total_recursos++;
+    if (total_recursos < MAX_RECURSOS) {
+        recursos[total_recursos++] = new Pelicula(id, titulo, duracion_min, director);
+    }
 }
 
 void Biblioteca::agregar_audiolibro(int id, string titulo, int duracion_min, string narrador) {
-    RecursoDigital* r = new Audiolibro(id, titulo, duracion_min, narrador);
-    recursos.push_back(r);
-    total_recursos++;
+    if (total_recursos < MAX_RECURSOS) {
+        recursos[total_recursos++] = new Audiolibro(id, titulo, duracion_min, narrador);
+    }
 }
 
-vector<RecursoDigital*> Biblioteca::buscar_por_titulo(string titulo) {
-    vector<RecursoDigital*> result;
-    for (auto* r : recursos) {
-        if (r->getTitulo() == titulo) {
-            result.push_back(r);
+int Biblioteca::buscar_por_titulo(string titulo, RecursoDigital* resultados[]) {
+    int count = 0;
+    for (int i = 0; i < total_recursos; ++i) {
+        if (recursos[i]->getTitulo() == titulo) {
+            resultados[count++] = recursos[i];
         }
     }
-    return result;
+    return count;
 }
 
-vector<RecursoDigital*> Biblioteca::recomendar_por_tipo(string tipo) {
-    vector<RecursoDigital*> result;
-    for (auto* r : recursos) {
-        if (r->getTipo() == tipo) {
-            result.push_back(r);
+int Biblioteca::recomendar_por_tipo(string tipo, RecursoDigital* resultados[]) {
+    int count = 0;
+    for (int i = 0; i < total_recursos; ++i) {
+        if (recursos[i]->getTipo() == tipo) {
+            resultados[count++] = recursos[i];
         }
     }
-    sort(result.begin(), result.end(), [](RecursoDigital* a, RecursoDigital* b) {
-        return a->getClasificacion() > b->getClasificacion();
-    });
-    return result;
+
+    for (int i = 0; i < count - 1; ++i) {
+        for (int j = i + 1; j < count; ++j) {
+            if (resultados[j]->getClasificacion() > resultados[i]->getClasificacion()) {
+                RecursoDigital* temp = resultados[i];
+                resultados[i] = resultados[j];
+                resultados[j] = temp;
+            }
+        }
+    }
+    return count;
 }
 
 RecursoDigital* Biblioteca::recomendar_mejor_calificado() {
-    if (recursos.empty()) return nullptr;
-    return *max_element(recursos.begin(), recursos.end(), [](RecursoDigital* a, RecursoDigital* b) {
-        return a->getClasificacion() < b->getClasificacion();
-    });
+    if (total_recursos == 0) return nullptr;
+    RecursoDigital* best = recursos[0];
+    for (int i = 1; i < total_recursos; ++i) {
+        if (recursos[i]->getClasificacion() > best->getClasificacion()) {
+            best = recursos[i];
+        }
+    }
+    return best;
 }
 
 RecursoDigital* Biblioteca::buscar_por_id(int id) {
-    for (auto* r : recursos) {
-        if (r->getId() == id) {
-            return r;
+    for (int i = 0; i < total_recursos; ++i) {
+        if (recursos[i]->getId() == id) {
+            return recursos[i];
         }
     }
     return nullptr;
 }
 
 Biblioteca::~Biblioteca() {
-    for (auto* r : recursos) {
-        delete r;
+    for (int i = 0; i < total_recursos; ++i) {
+        delete recursos[i];
     }
 }

@@ -25,4 +25,7 @@ Si se intenta buscar un ID que no existe o en caso de que haya un typo en a bús
 
 # Compliación
 g++ RecursoDigital.cpp Libro.cpp Pelicula.cpp Audiolibro.cpp Biblioteca.cpp Usuario.cpp main.cpp -o biblioteca
->> ./biblioteca
+./biblioteca 
+o
+biblioteca.exe
+

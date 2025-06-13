@@ -1,3 +1,9 @@
+/*
+ * Proyecto Biblioteca clase "RecursoDigital"
+ * Matías Romero Mariné
+ * A01708802
+ * 12/06/2025
+ */
 #include "RecursoDigital.h"
 using namespace std;
 

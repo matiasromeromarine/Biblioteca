@@ -1,3 +1,11 @@
+/*
+ * Proyecto Biblioteca clase "Biblioteca"
+ * Matías Romero Mariné
+ * A01708802
+ * 12/06/2025
+ *
+ * Clase para el usuario que usa el sistema
+ */
 #ifndef USUARIO_H
 #define USUARIO_H
 

@@ -1,3 +1,11 @@
+/*
+ * Proyecto Biblioteca clase "main"
+ * Matías Romero Mariné
+ * A01708802
+ * 12/06/2025
+ *
+ * Código main para correr todos los archivos
+ */
 #include <iostream>
 #include <string>
 #include <limits>
@@ -8,7 +16,12 @@ using namespace std;
 int main() {
     cout << "===== Biblioteca Digital =====" << endl;
     Biblioteca biblioteca;
-    Usuario usuario("Invitado");
+    Usuario usuario("Matias");
+    
+    biblioteca.agregar_libro(1, "Cien años de soledad", 417, "Gabriel Garcia Marquez");
+    biblioteca.agregar_pelicula(2, "El laberinto del fauno", 118, "Guillermo del Toro");
+    biblioteca.agregar_audiolibro(3, "El Alquimista", 240, "Ana Narradora");  
+    
     bool running = true;
     while (running) {
         cout << "\nSeleccione una opcion:\n"
@@ -53,7 +66,8 @@ int main() {
             cout << "Ingrese ID: "; int id; cin >> id;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Ingrese titulo: "; string titulo; getline(cin, titulo);
-            cout << "Ingrese narrador: "; string narrador; getline(cin, narrador);
+            cout << "Ingrese narrador: "; string narrador; 
+            getline(cin, narrador);
             cout << "Ingrese duracion (minutos): "; int dur; cin >> dur;
             biblioteca.agregar_audiolibro(id, titulo, dur, narrador);
             cout << "Audiolibro agregado con exito." << endl;

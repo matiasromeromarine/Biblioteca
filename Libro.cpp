@@ -1,3 +1,10 @@
+/*
+ * Proyecto Biblioteca clase "Libro"
+ * Matías Romero Mariné
+ * A01708802
+ * 12/06/2025
+ *
+ */
 #include "Libro.h"
 using namespace std;
 
@@ -9,5 +16,6 @@ int Libro::calcular_duracion() {
 }
 
 string Libro::mostrar_info() {
-    return "Libro: " + titulo + " de " + autor + ", paginas: " + to_string(paginas) + ", calificacion: " + to_string(clasificacion);
+    return "Libro: " + titulo + " de " + autor + ", paginas: " + 
+    to_string(paginas) + ", calificacion: " + to_string(clasificacion);
 }

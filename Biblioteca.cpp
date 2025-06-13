@@ -1,3 +1,10 @@
+/*
+ * Proyecto Biblioteca clase "Biblioteca"
+ * Matías Romero Mariné
+ * A01708802
+ * 12/06/2025
+ *
+ */
 #include "Biblioteca.h"
 #include "Libro.h"
 #include "Pelicula.h"
@@ -47,6 +54,7 @@ int Biblioteca::recomendar_por_tipo(string tipo, RecursoDigital* resultados[]) {
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
             if (resultados[j]->getClasificacion() > resultados[i]->getClasificacion()) {
+// Uso de punteros
                 RecursoDigital* temp = resultados[i];
                 resultados[i] = resultados[j];
                 resultados[j] = temp;
@@ -58,6 +66,7 @@ int Biblioteca::recomendar_por_tipo(string tipo, RecursoDigital* resultados[]) {
 
 RecursoDigital* Biblioteca::recomendar_mejor_calificado() {
     if (total_recursos == 0) return nullptr;
+// Uso de punteros
     RecursoDigital* best = recursos[0];
     for (int i = 1; i < total_recursos; ++i) {
         if (recursos[i]->getClasificacion() > best->getClasificacion()) {
